@@ -5,16 +5,16 @@ using namespace std;
 int main()
 {
     
-    int fecha;
-    int mes;
-    int anio;
-    int dia;
+    int fecha=0;
+    int mes=0;
+    int anio=0;
+    int dia=0;
 
     cout << "Ingrese una fecha en formato YYYYMMDD: ";
     cin >> fecha;
     anio = fecha / 10000;
-    mes = (fecha % 1000)/100;
-    dia = (fecha % 1000) % 100;
+    mes = (fecha / 100)%100;
+    dia = fecha % 100;
     //Otra opcion dia = fecha % 100
 
     cout << "El anio es: " << anio<<endl;
