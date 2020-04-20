@@ -13,7 +13,7 @@ int main()
     cout << "Ingrese una fecha en formato YYYYMMDD: ";
     cin >> fecha;
     anio = fecha / 10000;
-    mes = (fecha % 1000)/100;
+    mes = (fecha % 10000)/100;
     dia = (fecha % 1000) % 100;
     //Otra opcion dia = fecha % 100
 
