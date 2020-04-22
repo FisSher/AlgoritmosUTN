@@ -14,17 +14,17 @@ int main()
 
 	for (int i = 0; i < 10; i++) //50 sería para no explotar hago 10
 	{
-		cout << "Ingresar el numero " << i + 1<<": ";
+		cout << "Ingresar el numero " << i + 1 << ": ";
 		cin >> numero;
-		if (numero > 100) 
+		if (numero > 100)
 		{
 			mayoresCien++;
 			sumaNumerosMayorCien += numero;
 		}
-		else if (numero < -10) 
+		else if (numero < -10)
 		{
 			menoresMenosDiez++;
-			sumaNumerosMenosDiez += numero;	
+			sumaNumerosMenosDiez += numero;
 		}
 		else {
 			cout << "No es un numero valido" << endl;

@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{B0F9F1BA-552D-4968-B055-9C33129B97BE}</ProjectGuid>
+    <ProjectGuid>{FC8F98EC-59D7-4881-B4E6-1CAC0F165A99}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Ejercicio9loops</RootNamespace>
+    <RootNamespace>Ejercicio12loops</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Ejercicio12(loops)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ejercicio12%28loops%29.cpp" />
+    <ClCompile Include="Ejercicio12loops.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

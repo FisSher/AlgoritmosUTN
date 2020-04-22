@@ -11,9 +11,9 @@ int main()
 	int posicion = 0;
 	int posicionMaxima = 0;
 	float maximo = 0;
-	while(numero>=0)
+	while (numero >= 0)
 	{
-		cout << "Ingrese el numero " <<posicion<< " del conjunto: ";
+		cout << "Ingrese el numero " << posicion << " del conjunto: ";
 		cin >> numero;
 		if (numero > maximo) {
 			maximo = numero;
