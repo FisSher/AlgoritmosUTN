@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{C411F692-6FF8-496B-9442-E39930130B9B}</ProjectGuid>
+    <ProjectGuid>{F7A55EDF-0C1F-4B02-B131-8388B70487EE}</ProjectGuid>
     <RootNamespace>Ejercicio8loops</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Ejercicio11(loops)</ProjectName>
