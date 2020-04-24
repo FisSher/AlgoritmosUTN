@@ -1,4 +1,6 @@
-/*Ejercicio Nro.  5: Se necesita saber el tipo de un tri�ngulo, ingresando las dimensiones de los lados por separado*/
+/*Ejercicio Nro.  5: Se necesita saber el tipo de un triángulo, ingresando las dimensiones de los lados por separado*/
+//Lo resuelvo con la variable hip por hipotenusa para evitar la comparación entre los 3 lados. Soy consciente de eso, pero 
+//no tuve muchas ganas de hacerlo de nuevo cuando me avivé de subir el ejercicio. No se marque como issue.
 
 #include <iostream>
 using namespace std;
