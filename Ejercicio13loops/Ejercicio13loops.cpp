@@ -1,4 +1,4 @@
-// Ejercicio Nro. 3: Se ingresa un conjunto de valores positivos terminado con un valor negativo. 
+// Ejercicio Nro. 3: Se ingresa un conjunto de valores positivos terminado con un valor negativo.
 //Se pide desarrollar el programa que imprima el valor máximo del conjunto y su posición relativa
 //dentro del mismo (el número de orden en el que fue ingresado)
 
@@ -20,12 +20,7 @@ int main()
 			posicionMaxima = posicion;
 		}
 		posicion++;
-
 	}
 	cout << "El numero maximo fue: " << maximo;
 	cout << " en la posicion " << posicionMaxima;
-
-
-
 }
-

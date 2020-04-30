@@ -18,7 +18,6 @@ int main() {
 	cout << "El promedio es: ";
 	cout << resultado << endl;
 	cout << "Fin del programa" << endl;
-
 }
 
 float CalcularPromedio(float nota1, float nota2, float nota3) {

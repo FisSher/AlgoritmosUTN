@@ -7,34 +7,34 @@ bool ValidarGenerala(int a, int b, int c, int d, int e);
 
 int main()
 {
-   int a, b, c, d, e; //Variables genericas debido a que el programa es sencillo
-   cout << "Ingrese el primer numero: ";
-   cin >> a;
-   cout << "Ingrese el segundo numero: ";
-   cin >> b;
-   cout << "Ingrese el tercer numero: ";
-   cin >> c;
-   cout << "Ingrese el cuarto numero: ";
-   cin >> d;
-   cout << "Ingrese el quinto numero: ";
-   cin >> e;
-   bool respuesta = ValidarGenerala(a, b, c, d, e);
-   if (respuesta == true) 
-   {
-       cout << "Es generala";
-   }
-   else 
-   {
-       cout << "No es generala";
-   }
+	int a, b, c, d, e; //Variables genericas debido a que el programa es sencillo
+	cout << "Ingrese el primer numero: ";
+	cin >> a;
+	cout << "Ingrese el segundo numero: ";
+	cin >> b;
+	cout << "Ingrese el tercer numero: ";
+	cin >> c;
+	cout << "Ingrese el cuarto numero: ";
+	cin >> d;
+	cout << "Ingrese el quinto numero: ";
+	cin >> e;
+	bool respuesta = ValidarGenerala(a, b, c, d, e);
+	if (respuesta == true)
+	{
+		cout << "Es generala";
+	}
+	else
+	{
+		cout << "No es generala";
+	}
 }
 
-bool ValidarGenerala(int a, int b, int c, int d, int e) 
+bool ValidarGenerala(int a, int b, int c, int d, int e)
 {
-    if (a == b && a == c && a == d && a == e) {
-        return true;
-    }
-    else {
-        return false;
-    }
+	if (a == b && a == c && a == d && a == e) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

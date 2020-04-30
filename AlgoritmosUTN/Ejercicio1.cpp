@@ -8,7 +8,6 @@ void multiplicar(float a, float b);
 void sumar(float a, float b);
 
 int main() {
-
 	float a;
 	float b;
 	cout << "Ingrese a: ";
@@ -17,14 +16,14 @@ int main() {
 	cin >> b;
 	restar(a, b);
 	multiplicar(a, b);
-	sumar(a,b);
+	sumar(a, b);
 }
 
 void restar(float a, float b) {
 	float resultado;
 	resultado = a - b;
-	if (resultado <= 0){
-		cout << "El resultado es menor o igual a 0"<<endl;
+	if (resultado <= 0) {
+		cout << "El resultado es menor o igual a 0" << endl;
 	}
 	else {
 		cout << "El resultado de la resta es: ";

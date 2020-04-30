@@ -4,17 +4,16 @@ using namespace std;
 
 void continuar();
 
-
 int main()
 {
-    continuar();
+	continuar();
 }
 
 void continuar() {
-    int tecla;
-    while (true) {
-        cout << "Presione una tecla para continuar...";
-        cin >> tecla;
-        break;
-    }
+	int tecla;
+	while (true) {
+		cout << "Presione una tecla para continuar...";
+		cin >> tecla;
+		break;
+	}
 }

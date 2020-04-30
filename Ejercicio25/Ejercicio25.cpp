@@ -7,23 +7,22 @@ double pow(double x, double y);
 
 int main()
 {
-    double x=0;
-    double y=0;
+	double x = 0;
+	double y = 0;
 
-    cout << "Ingrese base: ";
-    cin >> x;
-    cout << "Ingrese exponente: ";
-    cin >> y;
+	cout << "Ingrese base: ";
+	cin >> x;
+	cout << "Ingrese exponente: ";
+	cin >> y;
 
-    double resultado = pow(x,y);
-    cout << resultado;
-
+	double resultado = pow(x, y);
+	cout << resultado;
 }
 
 double pow(double x, double y) {
-    double resultado = 1;
-    for (int i = 0; i < y; i++) {
-        resultado = resultado * x ;
-    }
-    return resultado;
+	double resultado = 1;
+	for (int i = 0; i < y; i++) {
+		resultado = resultado * x;
+	}
+	return resultado;
 }

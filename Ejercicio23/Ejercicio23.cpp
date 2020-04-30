@@ -1,4 +1,4 @@
-/*Desarrolle la función calcularPorcentajeDiferencia que recibe dos valores a, b y retorna el siguiente cálculo: (b-a) *100 / (a+b). 
+/*Desarrolle la función calcularPorcentajeDiferencia que recibe dos valores a, b y retorna el siguiente cálculo: (b-a) *100 / (a+b).
 El prototipo será: float calcularPorcentajeDiferencia(long a, long b); */
 
 #include <iostream>
@@ -19,7 +19,7 @@ int main()
 		cout << "El resultado es: " << "%" << res;
 	}
 	else {
-		cout << "a no puede ser mayor que b porque da porcentaje negativo" << endl;		
+		cout << "a no puede ser mayor que b porque da porcentaje negativo" << endl;
 	}
 }
 

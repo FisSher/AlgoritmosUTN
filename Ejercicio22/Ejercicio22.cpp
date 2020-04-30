@@ -6,11 +6,10 @@ using namespace std;
 
 bool esMultiplo(int a, int b);
 
-
 int main()
 {
-	int a=0;
-	int b=0;
+	int a = 0;
+	int b = 0;
 	cout << "Ingrese el primer numero: ";
 	cin >> a;
 	cout << "Ingrese el segundo numero: ";
@@ -22,18 +21,15 @@ int main()
 	else {
 		cout << "No es multiplo" << endl;
 	}
-
 }
 
 bool esMultiplo(int a, int b) {
 	bool res;
 	if (a % b == 0) {
-		res= true;
+		res = true;
 	}
 	else {
-		res= false;
+		res = false;
 	}
 	return res;
-
 }
-

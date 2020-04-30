@@ -15,11 +15,10 @@ int main()
 	if (fecha1 > fecha2) {
 		cout << "La fecha " << fecha1 << " es la mas reciente.";
 	}
-	else if(fecha2 > fecha1) {
+	else if (fecha2 > fecha1) {
 		cout << "La fecha " << fecha2 << " es la mas reciente.";
 	}
 	else {
-		cout<<"Las fechas son iguales";
+		cout << "Las fechas son iguales";
 	}
-
 }
