@@ -78,3 +78,15 @@ int buscaEInserta(int arr[], int& len, int v, bool& enc) {
 	}
 	return pos;
 }
+
+int buscarMinimo(int arr[], int& len) {
+	int min = 999999;
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] < min) {
+			min = arr[i];
+		}
+
+	}
+	return min;
+}
