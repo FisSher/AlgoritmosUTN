@@ -6,6 +6,10 @@ Ejercicio Nro.  3: Ingresar los datos de una matriz de 3x3, y mostrar su matriz 
 Ejercicio Nro.  4: Ingresar los datos de una matriz de 3x3, y mostrar su matriz inversa.  
 Ejercicio Nro.  5: Ingresar los datos de dos matrices de 2x2, y mostrar su producto. 
 */
+
+
+
+//No lo terminé porque matemáticamente hice un desastre y tendría que rehacerlos.
 #include <iostream>
 #include "vectores.hpp"
 using namespace std;
