@@ -4,6 +4,7 @@
 #include <string>
 #include "../Structs2/vectores.hpp"
 #include "../Struct3/vectores.hpp"
+#include "../Structs4/vectores.hpp"
 
 using namespace std;
 
@@ -168,7 +169,6 @@ int buscar(producto arr[], int len, int codigo) {
 		pos = i;
 	return pos;
 }
-
 void mostrarProducto(producto arr[], int len) {
 	for (int i = 0; i < len; i++)
 	{
@@ -178,4 +178,25 @@ void mostrarProducto(producto arr[], int len) {
 		cout << "Stock: " << arr[i].stock << endl;
 		cout << "---------------------------" << endl;
 	}
+}
+int buscar(estudiante arr[], int len, string nombre) {
+	int i = 0;
+	int pos = -1;
+	while (i<len && arr[i].nombre != nombre)
+	{
+		i++;
+	}
+	if (i < len) 
+		pos = i;
+	return pos;
+	
+}
+float calcularPromedio(estudiante arr[], int len) {
+	float suma = 0;
+	int i = 0;
+	while (i < len) {
+		suma += arr[i].nota;
+		i++;
+	}
+	return suma / len;
 }
