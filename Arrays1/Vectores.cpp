@@ -5,6 +5,8 @@
 #include "../Structs2/vectores.hpp"
 #include "../Struct3/vectores.hpp"
 #include "../Structs4/vectores.hpp"
+#include "../ApareoYCC2/vectores.hpp"
+
 
 using namespace std;
 
@@ -199,4 +201,22 @@ float calcularPromedio(estudiante arr[], int len) {
 		i++;
 	}
 	return suma / len;
+}
+void agregar(estudiantes arr[], int n, int& len, estudiantes v) {
+	if (len < n) {
+		arr[len] = v;
+		len++;
+	}
+	else {
+		cout << "El vector esta lleno" << endl;
+	}
+}
+void mostrar(estudiantes arr[], int len) {
+	for (int i = 0; i < len; i++)
+	{
+		cout << arr[i].legajo << endl;
+		cout << arr[i].apellido << endl;
+		cout << arr[i].promedio << endl;
+		cout << "----------------" << endl;
+	}
 }
