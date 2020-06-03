@@ -6,6 +6,7 @@
 #include "../Struct3/vectores.hpp"
 #include "../Structs4/vectores.hpp"
 #include "../ApareoYCC2/vectores.hpp"
+#include "../Archivos1/vectores.hpp"
 
 
 using namespace std;

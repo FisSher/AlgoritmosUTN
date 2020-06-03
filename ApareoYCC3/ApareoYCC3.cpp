@@ -55,10 +55,6 @@ int main()
 			legajoMaxPromedio = legajoAnterior;
 		}
 
-
-
-
-
 		cout << "El promedio del estudiante nro legajo " << legajoAnterior << endl;
 		cout << promedioPorEstudiante << endl;
 
