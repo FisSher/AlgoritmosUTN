@@ -1,7 +1,11 @@
 #pragma once
 #include <string>
 
-
+struct Nota {
+	int legajo;
+	char materia[50];
+	float nota;
+};
 
 #ifndef vectores
 #define vectores

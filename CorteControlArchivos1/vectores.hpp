@@ -1,7 +1,11 @@
 #pragma once
 #include <string>
 
-
+struct Venta {
+	int codArt;
+	int cantVendida;
+	float precioUnitario;
+};
 
 #ifndef vectores
 #define vectores
