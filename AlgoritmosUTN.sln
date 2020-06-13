@@ -81,6 +81,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CorteControlArchivos1", "Co
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CorteControlArchivos2", "CorteControlArchivos2\CorteControlArchivos2.vcxproj", "{6D0A77A6-585F-4606-9894-D114B18CB9DA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Recursividad1", "Recursividad1\Recursividad1.vcxproj", "{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApareoArchivosExtra1", "ApareoArchivosExtra1\ApareoArchivosExtra1.vcxproj", "{33C5981F-BCE9-43F1-85E1-98508EA934A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -401,6 +405,22 @@ Global
 		{6D0A77A6-585F-4606-9894-D114B18CB9DA}.Release|x64.Build.0 = Release|x64
 		{6D0A77A6-585F-4606-9894-D114B18CB9DA}.Release|x86.ActiveCfg = Release|Win32
 		{6D0A77A6-585F-4606-9894-D114B18CB9DA}.Release|x86.Build.0 = Release|Win32
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Debug|x64.ActiveCfg = Debug|x64
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Debug|x64.Build.0 = Debug|x64
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Debug|x86.Build.0 = Debug|Win32
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Release|x64.ActiveCfg = Release|x64
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Release|x64.Build.0 = Release|x64
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Release|x86.ActiveCfg = Release|Win32
+		{EA738D3B-47DE-47FD-AFEA-8458F8197F5B}.Release|x86.Build.0 = Release|Win32
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Debug|x64.ActiveCfg = Debug|x64
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Debug|x64.Build.0 = Debug|x64
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Debug|x86.ActiveCfg = Debug|Win32
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Debug|x86.Build.0 = Debug|Win32
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Release|x64.ActiveCfg = Release|x64
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Release|x64.Build.0 = Release|x64
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Release|x86.ActiveCfg = Release|Win32
+		{33C5981F-BCE9-43F1-85E1-98508EA934A1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
