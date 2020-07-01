@@ -15,4 +15,4 @@ void insertar(int arr[], int& len, int v, int pos);
 int insertarOrdenado(int arr[], int& len, int v);
 int buscaEInserta(int arr[], int& len, int v, bool& enc);
 
-#endif#pragma once
+#endif

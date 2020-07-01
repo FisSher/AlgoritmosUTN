@@ -24,6 +24,7 @@ using namespace std;
 int factorial(int numero);
 int potencia(int base, int exp);
 int fibonacci(int n);
+int divisionNatural(int dividendo, int divisor);
 
 int main()
 {
@@ -68,5 +69,17 @@ int fibonacci(int n) {
 		return n;
 	else
 		return fibonacci(n - 2) + fibonacci(n - 1);
+	
+}
+int divisionNatural(int dividendo, int divisor) {
+	int resultado=0;
+	if (dividendo == divisor)
+		resultado = 1;
+	else if (divisor > dividendo)
+		resultado = 0;
+	else {
+		resultado = 1 + divisionNatural(dividendo - divisor, divisor);
+	}
+
 	
 }
