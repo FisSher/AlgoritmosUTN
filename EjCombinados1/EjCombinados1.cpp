@@ -76,6 +76,18 @@ int main()
 		fwrite(&regCons, sizeof(estConsolidado), 1, estudiantes);
 		posB++;
 	}
+	rewind(estudiantes);
+
+	fread(&regCons, sizeof(estConsolidado), 1, estudiantes);
+	while (!feof(estudiantes))
+	{
+		cout << regCons.est.legajo << endl;
+		cout << regCons.est.email << endl;		
+		cout << regCons.est.nombre << endl;
+		cout << regCons.curso << endl;
+		cout << "------------------------------------" << endl;
+		fread(&regCons, sizeof(estConsolidado), 1, estudiantes);
+	}
 
 	fclose(estudiantes);
 }
