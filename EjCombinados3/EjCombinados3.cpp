@@ -55,7 +55,7 @@ struct detalle {
 	float totalArticulo;
 };
 
-int main();
+
 
 void imprimirCabeceras(FILE* cabeceraArch, cabecera regCabecera);
 

@@ -97,6 +97,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EjCombinados3", "EjCombinad
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EjCombinados4", "EjCombinados4\EjCombinados4.vcxproj", "{BAC06160-53D5-4D35-9801-32199DBC60F4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DinamicaLibreria", "DinamicaLibreria\DinamicaLibreria.vcxproj", "{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -481,6 +483,14 @@ Global
 		{BAC06160-53D5-4D35-9801-32199DBC60F4}.Release|x64.Build.0 = Release|x64
 		{BAC06160-53D5-4D35-9801-32199DBC60F4}.Release|x86.ActiveCfg = Release|Win32
 		{BAC06160-53D5-4D35-9801-32199DBC60F4}.Release|x86.Build.0 = Release|Win32
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Debug|x64.ActiveCfg = Debug|x64
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Debug|x64.Build.0 = Debug|x64
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Debug|x86.ActiveCfg = Debug|Win32
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Debug|x86.Build.0 = Debug|Win32
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Release|x64.ActiveCfg = Release|x64
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Release|x64.Build.0 = Release|x64
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Release|x86.ActiveCfg = Release|Win32
+		{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

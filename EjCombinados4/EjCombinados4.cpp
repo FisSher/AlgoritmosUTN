@@ -14,6 +14,7 @@ descendente por cantidad de espectadores
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+
 using namespace std;
 
 struct pelicula {
@@ -68,8 +69,82 @@ int main()
     */
 
     pelicula vec[20] = {};
+    int lenPeli = 0;
+
+    FILE* uniArch = fopen("unicenter.dat", "rb");
+    FILE* dotArch = fopen("dot.dat", "rb");
+    FILE* findeArch = fopen("finDeSemana.dat", "wb+");
+
+    pelicula reg;
 
 
+    fread(&reg, sizeof(pelicula), 1, uniArch);
+    fread(&reg, sizeof(pelicula), 1, dotArch);
+    while (!feof(uniArch))
+    {
+        vec[lenPeli] = reg;
+        lenPeli++;
+
+
+        
+        fread(&reg, sizeof(pelicula), 1, uniArch);
+    }
+
+    while (!feof(dotArch))
+    {
+        vec[lenPeli] = reg;
+        lenPeli++;
+        int pos = -1;
+        pos = busquedasecuencial(vec, lenPeli, reg.idPeli);
+        
+        if (pos == -1) {
+            vec[lenPeli] = reg;
+            lenPeli++;
+        }
+        else {
+            vec[pos].cantEsp += reg.cantEsp;
+        }
+
+        fread(&reg, sizeof(pelicula), 1, dotArch);
+    }
+        burbuja(vec, lenPeli);
+
+   /* for (int i = 0; i < lenPeli; i++) {
+        cout << vec[lenPeli].idPeli << endl;
+        cout << vec[lenPeli].nombrePeli << endl;
+        cout << vec[lenPeli].cantEsp << endl;
+    }*/
+
+    cout << "La pelicula menos vista fue " << vec[0].nombrePeli << " con " << vec[0].cantEsp << " espectadores." << endl;
+    cout << "Las 3 peliculas mas vistas fueron " << endl;
+    for (int i = lenPeli - 1; i > lenPeli-4; i--) {
+        cout << "-" << vec[i].nombrePeli << " con " << vec[i].cantEsp << endl;
+    }
+    //FIN PUNTO 1 AHORA VIENE EL ARCHIVO
+
+    peliculaFinDeSemana regFDS;
+
+    for (int i = lenPeli - 1; i >= 0; i--) {
+        strcpy(regFDS.nombrePeli, vec[i].nombrePeli);
+        regFDS.cantEsp = vec[i].cantEsp;
+        fwrite(&regFDS, sizeof(peliculaFinDeSemana), 1, findeArch);
+    }
+
+    rewind(findeArch);
+
+    fread(&regFDS, sizeof(peliculaFinDeSemana), 1, findeArch);
+    while (!feof(findeArch)) {
+        cout << regFDS.nombrePeli << endl;
+        cout << regFDS.cantEsp<< endl;
+        cout << "________________________" << endl;
+        fread(&regFDS, sizeof(peliculaFinDeSemana), 1, findeArch);
+
+    }
+
+
+    fclose(uniArch);
+    fclose(dotArch);
+    fclose(findeArch);
 
 }
 
