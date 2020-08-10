@@ -106,13 +106,13 @@ int main()
         if (reg1.nroArt < reg2.nroArt) {
             regArtDeposito.art = reg1;
             strcpy(regArtDeposito.deposito, "Dep 1");
-            fwrite(&reg1, sizeof(articuloDeposito), 1, stock);
+            fwrite(&regArtDeposito, sizeof(articuloDeposito), 1, stock);
             fread(&reg1, sizeof(articulo), 1, dep1);
         }
         else {
             regArtDeposito.art = reg2;
             strcpy(regArtDeposito.deposito, "Dep 2");
-            fwrite(&reg2, sizeof(articuloDeposito), 1, stock);
+            fwrite(&regArtDeposito, sizeof(articuloDeposito), 1, stock);
             fread(&reg2, sizeof(articulo), 1, dep2);
         }
 
@@ -124,7 +124,7 @@ int main()
     {
         regArtDeposito.art = reg1;
         strcpy(regArtDeposito.deposito, "Dep 1");
-        fwrite(&reg1, sizeof(articuloDeposito), 1, stock);
+        fwrite(&regArtDeposito, sizeof(articuloDeposito), 1, stock);
         fread(&reg1, sizeof(articulo), 1, dep1);
 
     }
@@ -132,7 +132,7 @@ int main()
     while (!feof(dep2))
     {
         strcpy(regArtDeposito.deposito, "Dep 2");
-        fwrite(&reg2, sizeof(articuloDeposito), 1, stock);
+        fwrite(&regArtDeposito, sizeof(articuloDeposito), 1, stock);
         fread(&reg2, sizeof(articulo), 1, dep2);
     }
     fclose(dep1);

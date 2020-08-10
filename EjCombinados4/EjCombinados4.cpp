@@ -14,7 +14,6 @@ descendente por cantidad de espectadores
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-
 using namespace std;
 
 struct pelicula {
@@ -27,6 +26,49 @@ struct peliculaFinDeSemana {
     char nombrePeli[50];
     int cantEsp;
 };
+
+void bubbleSort(pelicula arr[], int n)
+{
+    int i, j, temp, pass = 0;
+    for (i = 0; i < 10; i++) {
+        for (j = i + 1; j < 10; j++)
+        {
+            if (arr[j].cantEsp < arr[i].cantEsp) {
+                temp = arr[i].cantEsp;
+                arr[i].cantEsp = arr[j].cantEsp;
+                arr[j].cantEsp = temp;
+            }
+        }
+    }
+}
+
+int busquedaBinaria(pelicula vec[], int len, int valor) {
+    int ultimo = len - 1;
+    int primero = 0;
+    int medio = (primero + ultimo / 2);
+    int pos = -1;
+    while (primero <= ultimo)
+    {
+        if (vec[medio].idPeli == valor) {
+            pos = medio;
+            break;
+        }
+        else if (vec[medio].idPeli < valor) {
+            primero = medio + 1;
+        }
+        else {
+            ultimo = medio - 1;
+
+        }
+        medio = (primero + ultimo) / 2;
+
+    }
+    return pos;
+}
+
+
+
+
 
 int main()
 {
@@ -79,7 +121,7 @@ int main()
 
 
     fread(&reg, sizeof(pelicula), 1, uniArch);
-    fread(&reg, sizeof(pelicula), 1, dotArch);
+
     while (!feof(uniArch))
     {
         vec[lenPeli] = reg;
@@ -89,13 +131,11 @@ int main()
         
         fread(&reg, sizeof(pelicula), 1, uniArch);
     }
-
+    fread(&reg, sizeof(pelicula), 1, dotArch);
     while (!feof(dotArch))
     {
-        vec[lenPeli] = reg;
-        lenPeli++;
         int pos = -1;
-        pos = busquedasecuencial(vec, lenPeli, reg.idPeli);
+        pos = busquedaBinaria(vec, lenPeli, reg.idPeli);
         
         if (pos == -1) {
             vec[lenPeli] = reg;
@@ -107,7 +147,7 @@ int main()
 
         fread(&reg, sizeof(pelicula), 1, dotArch);
     }
-        burbuja(vec, lenPeli);
+    bubbleSort(vec, lenPeli);
 
    /* for (int i = 0; i < lenPeli; i++) {
         cout << vec[lenPeli].idPeli << endl;

@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{AE73E125-A4FE-4EC4-8992-F27BAC692ACD}</ProjectGuid>
+    <ProjectGuid>{F44BC422-9AD1-4FAC-87EB-8BE3868A559D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DinamicaLibreria</RootNamespace>
+    <RootNamespace>PracticaPrimerParcial2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Listas</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Listas.cpp" />
+    <ClCompile Include="PracticaPrimerParcial2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

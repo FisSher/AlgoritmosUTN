@@ -1,4 +1,4 @@
-// DinamicaLibreria.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Listas.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -16,9 +16,14 @@ Nodo* buscar(Nodo* p, int v);
 void eliminar(Nodo*& p, int v);
 int eliminarPrimerNodo(Nodo*& p);
 Nodo* insertarOrdenado(Nodo*& p, int v);
+void ordenar(Nodo*& p);
+Nodo* buscaEInsertaOrdenado(Nodo*& p, int v, bool& enc);
+
 
 int main()
 {
+
+
 }
 
 void agregarNodo(Nodo*& p, int x)
@@ -116,4 +121,28 @@ Nodo* insertarOrdenado(Nodo*& p, int v) {
 	nuevo->sig = aux;
 
 	return nuevo;
+}
+
+void ordenar(Nodo*& p) {
+
+	Nodo* q = NULL;
+	int valor;
+	while (p != NULL) {
+		valor = eliminarPrimerNodo(p);
+		insertarOrdenado(q, valor);
+	}
+	p = q;
+}
+
+Nodo* buscaEInsertaOrdenado(Nodo*& p, int v, bool& enc) {
+	Nodo* nodoBuscado = buscar(p, v);
+	if (nodoBuscado != NULL)
+	{
+		enc = true;
+	}
+	else {
+		nodoBuscado = insertarOrdenado(p, v);
+		enc = false;
+	}
+	return nodoBuscado;
 }
