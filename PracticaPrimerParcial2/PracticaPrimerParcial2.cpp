@@ -32,7 +32,7 @@ struct pelifinde {
 
 //Funciones
 void burbuja(pelicula vec[],int len);
-int busquedaBinaria(pelicula vec[], int len, int valor);
+int busquedaSecuencial(pelicula vec[], int len, int valor);
 
 
 
@@ -61,7 +61,7 @@ int main()
     while (!feof(uni))
     {
         int pos = -1;
-        pos = busquedaBinaria(vec, len, reg.idPeli);
+        pos = busquedaSecuencial(vec, len, reg.idPeli);
 
         if (pos == -1) {
             vec[len] = reg;
@@ -139,26 +139,17 @@ void burbuja(pelicula vec[], int len) {
 
 } 
 //Sacado de un ejercicio, tampoco lo hice de 0, pero funciona.
-int busquedaBinaria(pelicula vec[], int len, int valor) {
-    int ultimo = len - 1;
-    int primero = 0;
-    int medio = (primero + ultimo / 2);
+int busquedaSecuencial(pelicula vec[], int len, int valorBuscado) {
     int pos = -1;
-    while (primero <= ultimo)
-    {
-        if (vec[medio].idPeli == valor) {
-            pos = medio;
-            break;
-        }
-        else if (vec[medio].idPeli < valor) {
-            primero = medio + 1;
-        }
-        else {
-            ultimo = medio - 1;
 
-        }
-        medio = (primero + ultimo) / 2;
-
+    int i = 0;
+    while (i < len && vec[i].idPeli != valorBuscado) {
+        i++;
     }
+
+    if (vec[i].idPeli == valorBuscado) {
+        pos = i;
+    }
+
     return pos;
 }
