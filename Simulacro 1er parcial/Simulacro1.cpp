@@ -100,6 +100,7 @@ int main() {
             else {
                 vecC[lenC] = vecA[i];
                 lenC++;
+                i++;
             }
         }
 
@@ -110,6 +111,7 @@ int main() {
             {
                 vecC[lenC] = vecB[j];
                 lenC++;
+                j++;
             }
             else {
                 cout << "El vector esta lleno" << endl;
