@@ -1,89 +1,219 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
 /*
 --------------------------------------------------
 EJERCICIO 1
 -------------------------------------------------
-int main()
-{
-#include <iostream>
-	using namespace std;
+*/
 
-	void insertarOrdenado(articulo arr[], int& len, articulo v);
-	int buscar(articulo arr[], int len, articulo v);
-
-	struct articulo {
-		int codigo;
-		char descripcion;
-		int cantidadVendida;
-		float precioUnitario;
-	};
-
-	int main()
-	{
-		FILE* suc1 = fopen("suc1.dat", "rb");
-		FILE* suc2 = fopen("suc2.dat", "rb");
-		articulo vec[100] = {};
-		articulo reg1;
-		articulo reg2;
-		int len = 0;
-
-		float totalSuc1 = 0;
-		float totalSuc2 = 0;
-
-		fread(&reg1, sizeof(articulo), 1, suc1);
-		fread(&reg2, sizeof(articulo), 1, suc2);
-
-		while (!feof(suc1))
+struct articulo {
+	int codigo;
+	char descripcion[50];
+	int cantidadVendida;
+	float precioUnitario;
+};
+void burbuja(articulo a[], int& len) {
+	articulo temp;
+	int i, j;
+	for (i = 0; i < len; i++) {
+		for (j = i + 1; j < len; j++)
 		{
-			vec[len] = reg1;
-			len++;
-			totalSuc1 += reg1.cantidadVendida * reg1.precioUnitario;
-			fread(&reg1, sizeof(articulo), 1, suc1);
-		}
-
-		while (!feof(suc2))
-		{
-			totalSuc2 += reg2.cantidadVendida * reg2.precioUnitario;
-
-			int pos = -1;
-			bool enc = false;
-			pos = buscar(vec, len, reg2.codigo);
-
-			if (pos != -1)
-			{
-				vec[pos].cantidadVendida += reg2.cantidadVendida;
+			if (a[j].cantidadVendida < a[i].cantidadVendida) {
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
 			}
-			else
-			{
-				//Ordena de mayor a menor
-				insertarOrdenado(vec, len, reg2.cantidadVendida);
-			}
-
-			fread(&reg2, sizeof(articulo), 1, suc2);
 		}
-
-		cout << "Los 3 articulos mas vendidos fueron: " << endl;
-
-		for (int i = 0; i < len; i++)
-		{
-			cout << vec[i].descripcion << " con " << vec[i].cantidadVendida << " unidades vendidas " << endl;
-		}
-
-		if (totalSuc1 > totalSuc2)
-			cout << "La sucursal 1 recaudo mas dinero" << endl;
-		else
-			cout << "La sucursal 2 recaudo mas dinero" << endl;
-
-		fclose(suc1);
-		fclose(suc2);
 	}
 }
+void insertar(articulo arr[], int& len, articulo v, int pos) {
+	for (int i = len - 1; i >= pos; i--)
+	{
+		arr[i + 1] = arr[i];
+	}
+	arr[pos] = v;
+	len++;
+}
 
+void insertarOrdenado(articulo arr[], int& len, articulo v) {
+	int i = 0;
+	while (i < len && arr[i].cantidadVendida <= v.cantidadVendida)
+	{
+		i++;
+	}
+	insertar(arr, len, v, i);
+	
+}
+int buscar(articulo arr[], int len, int v) {
+	int i = 0;
+	int pos = -1;
+	while (i < len && arr[i].codigo != v) {
+		i++;
+	}
+	if (i < len) {
+		pos = i;
+	}
+
+	return pos;
+}
+
+
+int main()
+{
+	/*
+	FILE* suc1 = fopen("suc1.dat", "wb+");
+	FILE* suc2 = fopen("suc2.dat", "wb+");
+	articulo reg;
+
+	reg.codigo = 1;
+	reg.cantidadVendida = 10;
+	reg.precioUnitario = 5.12;
+	strcpy(reg.descripcion, "Tuercas");
+	fwrite(&reg, sizeof(articulo), 1, suc1);
+
+	reg.codigo = 2;
+	reg.cantidadVendida = 14;
+	reg.precioUnitario = 20.3;
+	strcpy(reg.descripcion, "Tornillos");
+	fwrite(&reg, sizeof(articulo), 1, suc1);
+
+	reg.codigo = 4;
+	reg.cantidadVendida = 30;
+	reg.precioUnitario = 120.45;
+	strcpy(reg.descripcion, "Destornillador");
+	fwrite(&reg, sizeof(articulo), 1, suc1);
+
+	reg.codigo = 5;
+	reg.cantidadVendida = 12;
+	reg.precioUnitario = 244.12;
+	strcpy(reg.descripcion, "Pinzas");
+	fwrite(&reg, sizeof(articulo), 1, suc1);
+
+	reg.codigo = 3;
+	reg.cantidadVendida = 200;
+	reg.precioUnitario = 500;
+	strcpy(reg.descripcion, "Pinzas");
+	fwrite(&reg, sizeof(articulo), 1, suc2);
+
+	reg.codigo = 6;
+	reg.cantidadVendida = 1;
+	reg.precioUnitario = 10;
+	strcpy(reg.descripcion, "Tijeras");
+	fwrite(&reg, sizeof(articulo), 1, suc2);
+
+	reg.codigo = 1;
+	reg.cantidadVendida = 10;
+	reg.precioUnitario = 5.12;
+	strcpy(reg.descripcion, "Tuercas");
+	fwrite(&reg, sizeof(articulo), 1, suc2);
+	
+	reg.codigo =0 ;
+	reg.cantidadVendida = 110;
+	reg.precioUnitario = 11;
+	strcpy(reg.descripcion, "Cinta");
+	fwrite(&reg, sizeof(articulo), 1, suc2);
+
+	rewind(suc1);
+	rewind(suc2);
+
+	fread(&reg, sizeof(articulo), 1, suc1);
+	while (!feof(suc1)) {
+		cout << reg.codigo << endl;
+		cout << reg.descripcion << endl;
+		cout << reg.cantidadVendida << endl;
+		cout << reg.precioUnitario << endl;
+
+		fread(&reg, sizeof(articulo), 1, suc1);
+	}
+
+	fread(&reg, sizeof(articulo), 1, suc2);
+	while (!feof(suc2)) {
+		cout << reg.codigo << endl;
+		cout << reg.descripcion << endl;
+		cout << reg.cantidadVendida << endl;
+		cout << reg.precioUnitario << endl;
+
+		fread(&reg, sizeof(articulo), 1, suc2);
+	}
+	
+	fclose(suc1);
+	fclose(suc2);
+
+	*/
+	
+	/*
+	
+	FILE* suc1 = fopen("suc1.dat", "rb");
+	FILE* suc2 = fopen("suc2.dat", "rb");
+	articulo vec[100] = {};
+	articulo reg1;
+	articulo reg2;
+	int len = 0;
+
+	float totalSuc1 = 0;
+	float totalSuc2 = 0;
+
+	fread(&reg1, sizeof(articulo), 1, suc1);
+	
+
+	while (!feof(suc1))
+	{
+		insertarOrdenado(vec, len, reg1);
+		totalSuc1 += reg1.cantidadVendida * reg1.precioUnitario;
+		fread(&reg1, sizeof(articulo), 1, suc1);
+	}
+	
+	
+	
+	fread(&reg2, sizeof(articulo), 1, suc2);
+	while (!feof(suc2))
+	{
+		totalSuc2 += reg2.cantidadVendida * reg2.precioUnitario;
+
+		int pos = -1;
+		bool enc = false;
+		pos = buscar(vec, len, reg2.codigo);
+
+		if (pos != -1)
+		{
+			vec[pos].cantidadVendida += reg2.cantidadVendida;
+		}
+		else
+		{
+		
+			insertarOrdenado(vec, len, reg2);
+		}
+
+		fread(&reg2, sizeof(articulo), 1, suc2);
+	}
+
+	burbuja(vec, len);
+	cout << "Los 3 articulos mas vendidos fueron: " << endl;
+
+	for (int i = len-1; i >len-4; i--)
+	{
+		cout << vec[i].descripcion << " con " << vec[i].cantidadVendida << " unidades vendidas " << endl;
+		
+	}
+	cout << "___________________________" << endl;
+	if (totalSuc1 > totalSuc2)
+		cout << "La sucursal 1 recaudo mas dinero" << endl;
+	else
+		cout << "La sucursal 2 recaudo mas dinero" << endl;
+
+	fclose(suc1);
+	fclose(suc2);
+
+}  //<------------------------------ Acá hay una llave, ojo
+
+
+*/
+
+/*
 --------------------------------------------------
 EJERCICIO 3
 -------------------------------------------------
-
 
 void mostrar(int arr[], int len) {
 	for (int i = 0; i < len; i++)
@@ -145,7 +275,6 @@ int main() {
 	llenarVector(vecA, vecB, lenA, lenB, vecC, lenC);
 	mostrar(vecC, lenC);
 }
-
 
 --------------------------------------------------
 EJERCICIO 4
