@@ -13,6 +13,20 @@ struct articulo {
 	int cantidadVendida;
 	float precioUnitario;
 };
+
+struct alumno {
+	int legajo;
+	char materia[50];
+	int curso;
+	float nota;
+};
+
+struct aprobado {
+	int legajo;
+	char materia[50];
+	int curso;
+};
+
 void burbuja(articulo a[], int& len) {
 	articulo temp;
 	int i, j;
@@ -35,7 +49,6 @@ void insertar(articulo arr[], int& len, articulo v, int pos) {
 	arr[pos] = v;
 	len++;
 }
-
 void insertarOrdenado(articulo arr[], int& len, articulo v) {
 	int i = 0;
 	while (i < len && arr[i].cantidadVendida <= v.cantidadVendida)
@@ -43,7 +56,6 @@ void insertarOrdenado(articulo arr[], int& len, articulo v) {
 		i++;
 	}
 	insertar(arr, len, v, i);
-	
 }
 int buscar(articulo arr[], int len, int v) {
 	int i = 0;
@@ -57,7 +69,6 @@ int buscar(articulo arr[], int len, int v) {
 
 	return pos;
 }
-
 
 int main()
 {
@@ -107,7 +118,7 @@ int main()
 	reg.precioUnitario = 5.12;
 	strcpy(reg.descripcion, "Tuercas");
 	fwrite(&reg, sizeof(articulo), 1, suc2);
-	
+
 	reg.codigo =0 ;
 	reg.cantidadVendida = 110;
 	reg.precioUnitario = 11;
@@ -136,14 +147,14 @@ int main()
 
 		fread(&reg, sizeof(articulo), 1, suc2);
 	}
-	
+
 	fclose(suc1);
 	fclose(suc2);
 
 	*/
-	
+
 	/*
-	
+
 	FILE* suc1 = fopen("suc1.dat", "rb");
 	FILE* suc2 = fopen("suc2.dat", "rb");
 	articulo vec[100] = {};
@@ -155,7 +166,6 @@ int main()
 	float totalSuc2 = 0;
 
 	fread(&reg1, sizeof(articulo), 1, suc1);
-	
 
 	while (!feof(suc1))
 	{
@@ -163,9 +173,7 @@ int main()
 		totalSuc1 += reg1.cantidadVendida * reg1.precioUnitario;
 		fread(&reg1, sizeof(articulo), 1, suc1);
 	}
-	
-	
-	
+
 	fread(&reg2, sizeof(articulo), 1, suc2);
 	while (!feof(suc2))
 	{
@@ -181,7 +189,6 @@ int main()
 		}
 		else
 		{
-		
 			insertarOrdenado(vec, len, reg2);
 		}
 
@@ -194,7 +201,6 @@ int main()
 	for (int i = len-1; i >len-4; i--)
 	{
 		cout << vec[i].descripcion << " con " << vec[i].cantidadVendida << " unidades vendidas " << endl;
-		
 	}
 	cout << "___________________________" << endl;
 	if (totalSuc1 > totalSuc2)
@@ -204,11 +210,110 @@ int main()
 
 	fclose(suc1);
 	fclose(suc2);
-
 }  //<------------------------------ Acá hay una llave, ojo
 
-
 */
+
+/*--------------------------------------------------
+EJERCICIO 2
+------------------------------------------------ -
+*/
+
+/*
+FILE* notas = fopen("notas.dat", "wb+");
+
+alumno vec[15] = { { 1233,"Discreta",444, 8 },
+					{ 1233,"Algoritmos",4256, 6.5 },
+					{ 1233,"AM1",4234, 7 },
+					{ 1233,"Algebra",2454, 7.5 },
+					{ 1233,"Ingles",5524, 9 },
+					{ 456,"Discreta",423, 5 },
+					{ 456,"Algoritmos",436, 4.5 },
+					{ 456,"AM1",8564, 7 },
+					{ 456,"Algebra",4564, 8.5 },
+					{ 456,"Ingles",8876, 6 },
+					{ 321,"Discreta",466, 6 },
+					{ 321,"Algoritmos",746, 5 },
+					{ 321,"AM1",8564, 7 },
+					{ 321,"Algebra",4564, 7 },
+					{ 321,"Ingles",8876, 9 },
+};
+int len = 15;
+alumno reg;
+
+for (int i = 0; i < len; i++)
+{
+	reg.curso = vec[i].curso;
+	reg.legajo = vec[i].legajo;
+	reg.nota = vec[i].nota;
+	strcpy(reg.materia, vec[i].materia);
+	fwrite(&reg, sizeof(alumno), 1, notas);
+}
+
+rewind(notas);
+fclose(notas);
+*/
+
+	FILE* notas = fopen("notas.dat", "rb");
+	FILE* aprobados = fopen("aprobados.dat", "wb+");
+	alumno reg;
+	aprobado regAprob;
+
+	int legajoAnterior = 0;
+	float mejorPromedio = 0;
+	float peorNota = 90;
+
+	fread(&reg, sizeof(alumno), 1, notas);
+	while (!feof(notas))
+	{
+		float promedioAlumno = 0;
+		legajoAnterior = reg.legajo;
+		float sumaNotas = 0;
+		int cantidadNotas = 0;
+
+		while (!feof(notas) && reg.legajo == legajoAnterior)
+		{
+			sumaNotas += reg.nota;
+			cantidadNotas++;
+			promedioAlumno = sumaNotas / cantidadNotas;
+			
+			if (reg.nota < peorNota) {
+				peorNota = reg.nota;
+			}
+
+			if (reg.nota > 6) {
+				regAprob.curso = reg.curso;
+				regAprob.legajo = reg.legajo;
+				strcpy(regAprob.materia, reg.materia);
+				fwrite(&regAprob, sizeof(aprobado), 1, aprobados);
+			}
+
+			fread(&reg, sizeof(alumno), 1, notas);
+		}
+		if (promedioAlumno > mejorPromedio) {
+			mejorPromedio = promedioAlumno;
+		}
+
+		cout << "El promedio del alumno " << legajoAnterior << " es " << promedioAlumno<<endl;
+	}
+	cout << "El mejor promedio fue " << mejorPromedio << endl;
+	cout << "La peor nota fue " << peorNota << endl;
+
+	fclose(notas);
+	rewind(aprobados);
+
+	fread(&regAprob, sizeof(aprobado), 1, aprobados);
+	while (!feof(aprobados))
+	{
+		cout << regAprob.legajo << endl;
+		cout << regAprob.curso << endl;
+		cout << regAprob.materia << endl;
+		cout << "____________________________" << endl;
+
+		fread(&regAprob, sizeof(aprobado), 1, aprobados);
+	}
+	fclose(aprobados);
+}
 
 /*
 --------------------------------------------------
@@ -275,7 +380,9 @@ int main() {
 	llenarVector(vecA, vecB, lenA, lenB, vecC, lenC);
 	mostrar(vecC, lenC);
 }
+*/
 
+/*
 --------------------------------------------------
 EJERCICIO 4
 -------------------------------------------------
