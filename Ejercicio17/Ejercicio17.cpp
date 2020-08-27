@@ -13,8 +13,6 @@ int main()
 	cin >> fecha;
 	anio = fecha / 10000;
 	mes = (fecha % 10000) / 100;
-	dia = (fecha % 1000) % 100;
-	mes = (fecha / 1000) % 100;
 	dia = fecha % 100;
 	//Otra opcion dia = fecha % 100
 

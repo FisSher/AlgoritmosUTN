@@ -8,7 +8,6 @@
 #include "../ApareoYCC2/vectores.hpp"
 #include "../Archivos1/vectores.hpp"
 
-
 using namespace std;
 
 void inicializar(int vec[], int n) {
@@ -185,14 +184,13 @@ void mostrarProducto(producto arr[], int len) {
 int buscar(estudiante arr[], int len, string nombre) {
 	int i = 0;
 	int pos = -1;
-	while (i<len && arr[i].nombre != nombre)
+	while (i < len && arr[i].nombre != nombre)
 	{
 		i++;
 	}
-	if (i < len) 
+	if (i < len)
 		pos = i;
 	return pos;
-	
 }
 float calcularPromedio(estudiante arr[], int len) {
 	float suma = 0;

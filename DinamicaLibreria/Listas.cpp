@@ -19,11 +19,8 @@ Nodo* insertarOrdenado(Nodo*& p, int v);
 void ordenar(Nodo*& p);
 Nodo* buscaEInsertaOrdenado(Nodo*& p, int v, bool& enc);
 
-
 int main()
 {
-
-
 }
 
 void agregarNodo(Nodo*& p, int x)
@@ -124,7 +121,6 @@ Nodo* insertarOrdenado(Nodo*& p, int v) {
 }
 
 void ordenar(Nodo*& p) {
-
 	Nodo* q = NULL;
 	int valor;
 	while (p != NULL) {
