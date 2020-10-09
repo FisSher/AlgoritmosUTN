@@ -17,38 +17,26 @@ T* agregar(T*& lista, V valor) {
 	return nuevo;
 }
 
-
 template <typename T, typename V>
-T* buscar(T& lista, V valorBuscado) {
+T* buscar(T* lista, V valorBuscado) {
 	T* aux = lista;
 	try
 	{
-		try
+		while (aux != NULL && aux->info.id != valorBuscado.id)
 		{
-			while (aux != NULL && aux->info.nroCliente != V.nroCliente) 
-			{
-				aux = aux->sig;
-			}
-		}
-		catch  (...)
-		{
-			while (aux != NULL && strcmp(aux->info.articulo, V.articulo) != 0) 
-			{
-				aux = aux->sig;
-			}
+			aux = aux->sig;
 		}
 	}
-	catch ( std::exception& e )
+	catch (std::exception& e)
 	{
 		std::cout << "Error en la busqueda: " << e.what() << std::endl;
 	}
 
-	
 	return aux;
 }
 
 template <typename T, typename V, typename B >
-T* buscaEInserta(T*& lista, V valorBuscado, B& encontrado) {
+T* buscaEInserta(T* lista, V valorBuscado, B& encontrado) {
 	T* nodoBuscado = buscar(lista, valorBuscado);
 	if (nodoBuscado != NULL) { // el nodo está en la lista
 		encontrado = true;

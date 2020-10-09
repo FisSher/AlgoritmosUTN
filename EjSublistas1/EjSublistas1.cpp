@@ -35,13 +35,13 @@ Articulo* agregarArticulo(Articulo*& p, infoArt x);
 */
 struct venta {
 	int nroCliente;
-	char articulo[50];
+	char id[50];
 	int cant;
 	float precioUnitario;
 };
 
 struct infoArt {
-	char articulo[50];
+	char id[50];
 	float precioUnitario;
 	int cantidad;
 };
@@ -52,7 +52,7 @@ struct Articulo {
 };
 
 struct infoCliente {
-	int nroCliente;
+	int id;
 	float  dineroGastado;
 	Articulo* articulosComprados;
 };
@@ -61,10 +61,6 @@ struct Cliente {
 	infoCliente info;
 	Cliente* sig;
 };
-
-
-
-
 
 int main()
 {
@@ -80,11 +76,11 @@ int main()
 	fread(&reg, sizeof(venta), 1, ventas);
 	while (!feof(ventas))
 	{
-		infoC.nroCliente = reg.nroCliente;
+		infoC.id = reg.nroCliente;
 		infoC.dineroGastado = 0;
 		infoC.articulosComprados = NULL;
 		clienteBuscado = buscaEInserta(listaClientes, infoC, enc);
-		strcpy(infoA.articulo, reg.articulo);
+		strcpy(infoA.id, reg.id);
 		infoA.cantidad = reg.cant;
 		infoA.precioUnitario = reg.precioUnitario;
 
@@ -104,30 +100,23 @@ int main()
 
 	Cliente* clienteAux = listaClientes;
 
-
-	while (clienteAux!=NULL)
+	while (clienteAux != NULL)
 	{
-		std::cout << "El cliente " << clienteAux->info.nroCliente << " gasto: " << clienteAux->info.dineroGastado;
+		std::cout << "El cliente " << clienteAux->info.id << " gasto: " << clienteAux->info.dineroGastado;
 
 		cout << "Detalle:" << endl;
 		Articulo* articuloAux = clienteAux->info.articulosComprados;
 		while (articuloAux != NULL)
 		{
-			cout << articuloAux->info.articulo << "-" << articuloAux->info.cantidad << "-" << articuloAux->info.precioUnitario <<
-				"-"<<articuloAux->info.precioUnitario * articuloAux->info.cantidad;
+			cout << articuloAux->info.id << "-" << articuloAux->info.cantidad << "-" << articuloAux->info.precioUnitario <<
+				"-" << articuloAux->info.precioUnitario * articuloAux->info.cantidad;
 
 			articuloAux = articuloAux->sig;
 		}
 
-			dineroGastadoPorTodosLosClientes += clienteAux->info.dineroGastado;
+		dineroGastadoPorTodosLosClientes += clienteAux->info.dineroGastado;
 		clienteAux = clienteAux->sig;
 	}
-
-
-
-
-
-
 }
 /*
 Articulo* buscarArticulo(Articulo* p, infoArt v) {
@@ -168,7 +157,6 @@ Articulo* buscaEInsertaArticulo(Articulo*& p, infoArt v, bool& enc) {
 
 	return nodoBuscado;
 }
-
 
 Cliente* buscarCliente(Cliente* p, infoCliente v) {
 	Cliente* aux = p;
