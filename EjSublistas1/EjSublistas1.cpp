@@ -24,15 +24,7 @@ Detalle:
 
 using namespace std;
 
-/*
-Cliente* buscaEInsertaCliente(Cliente*& p, infoCliente v, bool& enc);
-Cliente* buscarCliente(Cliente* p, infoCliente v);
-Cliente* agregarCliente(Cliente*& p, infoCliente x);
 
-Articulo* buscaEInsertaArticulo(Articulo*& p, infoArt v, bool& enc);
-Articulo* buscarArticulo(Articulo* p, infoArt v);
-Articulo* agregarArticulo(Articulo*& p, infoArt x);
-*/
 struct venta {
 	int nroCliente;
 	char id[50];
@@ -102,14 +94,14 @@ int main()
 
 	while (clienteAux != NULL)
 	{
-		std::cout << "El cliente " << clienteAux->info.id << " gasto: " << clienteAux->info.dineroGastado;
+		cout << "El cliente (ID): " << clienteAux->info.id << " gasto: " << clienteAux->info.dineroGastado<<"$"<<endl;
 
 		cout << "Detalle:" << endl;
 		Articulo* articuloAux = clienteAux->info.articulosComprados;
 		while (articuloAux != NULL)
 		{
-			cout << articuloAux->info.id << "-" << articuloAux->info.cantidad << "-" << articuloAux->info.precioUnitario <<
-				"-" << articuloAux->info.precioUnitario * articuloAux->info.cantidad;
+			cout <<"Articulo: " <<articuloAux->info.id << " Cantidad:" << articuloAux->info.cantidad << " Precio unitario: " << articuloAux->info.precioUnitario <<
+				" Precio Total: " << articuloAux->info.precioUnitario * articuloAux->info.cantidad << endl;
 
 			articuloAux = articuloAux->sig;
 		}
@@ -118,81 +110,3 @@ int main()
 		clienteAux = clienteAux->sig;
 	}
 }
-/*
-Articulo* buscarArticulo(Articulo* p, infoArt v) {
-	Articulo* aux = p;
-	while (aux != NULL && strcmp(aux->info.articulo, v.articulo) != 0) {
-		aux = aux->sig;
-	}
-	return aux;
-}
-
-Articulo* agregarArticulo(Articulo*& p, infoArt x) {
-	Articulo* nuevo = new Articulo();
-	nuevo->info = x;
-	nuevo->sig = NULL;
-	if (p == NULL) { // la lista p esta vacía
-		p = nuevo;
-	}
-	else {
-		Articulo* aux = p;
-		while (aux->sig != NULL) {
-			aux = aux->sig;
-		}
-		aux->sig = nuevo;
-	}
-
-	return nuevo;
-}
-
-Articulo* buscaEInsertaArticulo(Articulo*& p, infoArt v, bool& enc) {
-	Articulo* nodoBuscado = buscarArticulo(p, v);
-	if (nodoBuscado != NULL) { // el nodo está en la lista
-		enc = true;
-	}
-	else { // el nodo no está
-		nodoBuscado = agregarArticulo(p, v);
-		enc = false;
-	}
-
-	return nodoBuscado;
-}
-
-Cliente* buscarCliente(Cliente* p, infoCliente v) {
-	Cliente* aux = p;
-	while (aux != NULL && aux->info.nroCliente != v.nroCliente) {
-		aux = aux->sig;
-	}
-	return aux;
-}
-
-Cliente* agregarCliente(Cliente*& p, infoCliente x) {
-	Cliente* nuevo = new Cliente();
-	nuevo->info = x;
-	nuevo->sig = NULL;
-	if (p == NULL) { // la lista p esta vacía
-		p = nuevo;
-	}
-	else {
-		Cliente* aux = p;
-		while (aux->sig != NULL) {
-			aux = aux->sig;
-		}
-		aux->sig = nuevo;
-	}
-
-	return nuevo;
-}
-
-Cliente* buscaEInsertaCliente(Cliente*& p, infoCliente v, bool& enc) {
-	Cliente* nodoBuscado = buscarCliente(p, v);
-	if (nodoBuscado != NULL) { // el nodo está en la lista
-		enc = true;
-	}
-	else { // el nodo no está
-		nodoBuscado = agregarCliente(p, v);
-		enc = false;
-	}
-
-	return nodoBuscado;
-}*/

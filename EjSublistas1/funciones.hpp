@@ -3,7 +3,7 @@ T* agregar(T*& lista, V valor) {
 	T* nuevo = new T();
 	nuevo->info = valor;
 	nuevo->sig = NULL;
-	if (lista == NULL) { // la lista p esta vacía
+	if (lista == NULL) { // la lista esta vacía
 		lista = nuevo;
 	}
 	else {
@@ -36,7 +36,7 @@ T* buscar(T* lista, V valorBuscado) {
 }
 
 template <typename T, typename V, typename B >
-T* buscaEInserta(T* lista, V valorBuscado, B& encontrado) {
+T* buscaEInserta(T*& lista, V valorBuscado, B& encontrado) {
 	T* nodoBuscado = buscar(lista, valorBuscado);
 	if (nodoBuscado != NULL) { // el nodo está en la lista
 		encontrado = true;
