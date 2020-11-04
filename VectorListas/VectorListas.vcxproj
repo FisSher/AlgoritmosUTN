@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{5E73FDCD-EBF1-48AA-8404-34947FB63EEC}</ProjectGuid>
+    <ProjectGuid>{06AAE5AA-BB4A-4487-9026-75C79DEA780B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>EjSublistas2</RootNamespace>
+    <RootNamespace>VectorListas</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -147,11 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EjSublistas2.cpp" />
-    <ClCompile Include="practica.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="funciones.hpp" />
+    <ClCompile Include="VectorListas.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
