@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EjSublistas2.cpp">
+    <ClCompile Include="SimulacroSegundoParcial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

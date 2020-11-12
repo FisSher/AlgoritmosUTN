@@ -4,8 +4,8 @@ número de cliente, artículo comprado, cantidad comprada y precio
 unitario.
 
 Con estos datos llenar una lista que debe contener número de cliente y dinero gastado.
-A su vez cada nodo de esa lista va a poseer una sublista de los artículos comprados, junto con su cantidad
-comprada y precio unitario.
+A su vez cada nodo de esa lista va a poseer una sublista de los artículos comprados, junto 
+con su cantidad comprada y precio unitario.
 Nota: El precio unitario para cada artículo no varía.
 
 Si el artículo se repite por cada cliente debe incrementarse su cantidad vendida.
@@ -14,7 +14,7 @@ Luego, mostrar un listado con la siguiente estructura:
 Número de Cliente:
 $ dineroGastado por el cliente
 Detalle:
-● Artículo cantidadDeUnidades precioUnitario total
+ Artículo-> cantidadDeUnidades-> precioUnitario-> total
  Total de Dinero Recaudado: $dineroGastadoPorTodosLosClientes
  */
 
