@@ -3,16 +3,10 @@
 #include "funciones.hpp"
 using namespace std;
 
-
-
-
-
-
-
 //Ej1
 /*Crear un procedimiento que dadas dos listas A y B,
 llene una lista C con la unión (sin repetidos) de las listas A y B.*/
-/*
+
 struct NodoB {
 	NodoB* sig;
 	int info;
@@ -30,17 +24,15 @@ struct NodoC {
 
 void llenarLista(NodoA* listaA, NodoB* listaB, NodoC*& listaC) {
 	bool enc;
-	int info;
+
 	while (listaA != NULL)
 	{
-		info = listaA->info;
-		buscaEInserta(listaC, info, enc);
+		buscaEInserta(listaC, listaA->info, enc);
 		listaA = listaA->sig;
 	}
 	while (listaB != NULL)
 	{
-		info = listaB->info;
-		buscaEInserta(listaC, info, enc);
+		buscaEInserta(listaC, listaB->info, enc);
 		listaB = listaB->sig;
 	}
 }
@@ -52,20 +44,16 @@ int main() {
 
 	for (int i = 1; i < 5; i++)
 	{
-	
 		agregar(listaA, i);
 	}
 	for (int j = 1; j < 8; j++)
 	{
-		
 		agregar(listaB, j);
 	}
 
 	llenarLista(listaA, listaB, listaC);
 	mostrar(listaC);
-
 }
-*/
 
 //Ej2
 /* En el archivo “turnos20201031.dat” tenemos el listado de turnos de un consultorio para un día en particular.
@@ -114,7 +102,7 @@ int main() {
 
 	while (listaPacientes!=NULL)
 	{
-		encolar(cfte,cfin,listaPacientes->info); 
+		encolar(cfte,cfin,listaPacientes->info);
 		listaPacientes = listaPacientes->sig;
 	}
 
@@ -264,8 +252,6 @@ int main() {
 }
 */
 
-
-
 //Funciones
 //Ej2
 /*
@@ -315,22 +301,21 @@ NodoLista* insertarOrdenado(NodoLista*& p, turno v) {
 	nuevo->sig = aux;
 
 	return nuevo;
-
 	}
 	*/
-//Ej3
-/*
-char pop(NodoPila*& p) {
-	char retorno = p->info;
-	NodoPila* aux = p;
-	p = aux->sig;
-	delete aux;
-	return retorno;
-}
-void push(NodoPila*& p, char v) {
-	NodoPila* nuevo = new NodoPila();
-	nuevo->info = v;
-	nuevo->sig = p;
-	p = nuevo;
-}
-*/
+	//Ej3
+	/*
+	char pop(NodoPila*& p) {
+		char retorno = p->info;
+		NodoPila* aux = p;
+		p = aux->sig;
+		delete aux;
+		return retorno;
+	}
+	void push(NodoPila*& p, char v) {
+		NodoPila* nuevo = new NodoPila();
+		nuevo->info = v;
+		nuevo->sig = p;
+		p = nuevo;
+	}
+	*/
