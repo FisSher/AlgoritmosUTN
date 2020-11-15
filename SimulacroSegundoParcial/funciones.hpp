@@ -22,7 +22,7 @@ T* buscar(T* lista, V valorBuscado) {
 	T* aux = lista;
 	try
 	{
-		while (aux != NULL && aux->info.id != valorBuscado.id)
+		while (aux != NULL && aux->info != valorBuscado)
 		{
 			aux = aux->sig;
 		}
@@ -34,6 +34,7 @@ T* buscar(T* lista, V valorBuscado) {
 
 	return aux;
 }
+
 
 template <typename T, typename V, typename B >
 T* buscaEInserta(T*& lista, V valorBuscado, B& encontrado) {
@@ -48,3 +49,16 @@ T* buscaEInserta(T*& lista, V valorBuscado, B& encontrado) {
 
 	return nodoBuscado;
 };
+
+template<typename T>
+void mostrar(T* lista) {
+	T* aux = lista;
+	while (aux != NULL)
+	{
+		std::cout << aux->info << std::endl;
+		aux = aux->sig;
+	}
+	
+}
+
+
