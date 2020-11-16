@@ -6,7 +6,7 @@ using namespace std;
 //Ej1
 /*Crear un procedimiento que dadas dos listas A y B,
 llene una lista C con la unión (sin repetidos) de las listas A y B.*/
-
+/*
 struct NodoB {
 	NodoB* sig;
 	int info;
@@ -54,6 +54,7 @@ int main() {
 	llenarLista(listaA, listaB, listaC);
 	mostrar(listaC);
 }
+*/
 
 //Ej2
 /* En el archivo “turnos20201031.dat” tenemos el listado de turnos de un consultorio para un día en particular.
@@ -167,7 +168,7 @@ Informar:
 	Cuál es el cliente que menos dinero gastó.
 	Cuál es el cliente que más unidades totales de productos compró.
 */
-/*
+
 struct Venta {
 	int numeroCliente;
 	int articulo;
@@ -211,16 +212,21 @@ int main() {
 
 	while (!feof(ventas))
 	{
+		//Extraigo datos del cliente.
 		regCli.numeroCliente = regVenta.numeroCliente;
 		regCli.dineroGastado = 0;
 		regCli.articulos = NULL;
-		cliBuscado = buscaEInserta(listaClientes, regCli.numeroCliente, enc);
+		//Busco si el cliente existe.
+		cliBuscado = buscaEInserta(listaClientes, regCli, enc);
 
+		//Extraigo datos del articulo
 		regArt.id = regVenta.articulo;
 		regArt.cantidadComprada = regVenta.cantidad;
-		regArt.precioUnitario = regVenta.precioUnitario;
 
-		artBuscado = buscaEInserta(listaClientes->info.articulos, regArt.id, enc);
+		//Busco e inserto el articulo en la lista de articulos de clientes.
+		artBuscado = buscaEInserta(listaClientes->info.articulos, regArt, enc);
+
+		//Si lo encuentra lo suma
 		if (enc)
 			artBuscado->info.cantidadComprada += regArt.cantidadComprada;
 
@@ -230,27 +236,48 @@ int main() {
 	}
 	fclose(ventas);
 
-	float menosDineroGastado = 9999999;
-	int MasUniProdCompradas = 0;
-	int clienteMasCompras = 0;
-	int cliMenosDineroGastado = 0;
+	float menosDineroGastado = 9999999;  //Menor dinero gastado global
+	int MasUniProdCompradas = 0; //La cantidad de unidades compradas maxima
+	int clienteMasCompras = 0;  //El cliente que mas unidades compro
+	int cliMenosDineroGastado = 0;  //El cliente que menos dinero gasto
+	int unidadesCompradas = 0; //Unidades compradas local
 
+	//Copio la lista total por comodidad
 	Cliente* listaAux = listaClientes;
 
-	while (listaAux!=NULL)
+	//Recorro
+	while (listaAux != NULL)
 	{
-		if (listaAux->info.articulos->info.cantidadComprada>MasUniProdCompradas)
-			MasUniProdCompradas = listaAux->info.articulos->info.cantidadComprada;
+		//Hago una copia de la lista de articulos.
+		Articulo* listaArtAux = listaAux->info.articulos;
 
-		if (listaAux->info.dineroGastado < menosDineroGastado)
+		//Vacio la lista de los articulos
+		while (listaArtAux != NULL)
+		{
+			//Sumo la cantidad de unidades que compro el cliente de todos los articulos (no decia que sea uno solo)
+			unidadesCompradas += listaArtAux->info.cantidadComprada;
+			//avanzo
+			listaArtAux = listaArtAux->sig;
+		}
+
+		//Cuando termino el recorrido de la lista, comparo.
+		if (unidadesCompradas > MasUniProdCompradas) {
+			MasUniProdCompradas = unidadesCompradas;
+			clienteMasCompras = listaAux->info.numeroCliente;
+		}
+
+		//Puedo comparar el dinero gastado directamente.
+		if (listaAux->info.dineroGastado < menosDineroGastado) {
+			menosDineroGastado = listaAux->info.dineroGastado;
 			cliMenosDineroGastado = listaAux->info.numeroCliente;
+		}
 
+		//Avanzo la lista padre.
 		listaAux = listaAux->sig;
 	}
-	cout << "El cliente que menos dinero gasto fue: " << cliMenosDineroGastado<<endl;
+	cout << "El cliente que menos dinero gasto fue: " << cliMenosDineroGastado << endl;
 	cout << "El cliente que mas productos compro fue: " << clienteMasCompras << endl;
 }
-*/
 
 //Funciones
 //Ej2
@@ -305,17 +332,17 @@ NodoLista* insertarOrdenado(NodoLista*& p, turno v) {
 	*/
 	//Ej3
 	/*
-	char pop(NodoPila*& p) {
-		char retorno = p->info;
-		NodoPila* aux = p;
-		p = aux->sig;
-		delete aux;
-		return retorno;
-	}
-	void push(NodoPila*& p, char v) {
-		NodoPila* nuevo = new NodoPila();
-		nuevo->info = v;
-		nuevo->sig = p;
-		p = nuevo;
-	}
-	*/
+		char pop(NodoPila*& p) {
+			char retorno = p->info;
+			NodoPila* aux = p;
+			p = aux->sig;
+			delete aux;
+			return retorno;
+		}
+		void push(NodoPila*& p, char v) {
+			NodoPila* nuevo = new NodoPila();
+			nuevo->info = v;
+			nuevo->sig = p;
+			p = nuevo;
+		}
+		*/
